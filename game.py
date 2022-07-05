@@ -1,5 +1,5 @@
 from random import *
-import os
+
 
 menu_prompt = (
     '- Press A to PLAY\n'
@@ -8,6 +8,7 @@ menu_prompt = (
     '- Choose: '
 )
 
+# DISPLAY DO MENU + VARIAVEIS
 
 def menu():
     menu_input = ""
@@ -24,6 +25,8 @@ def menu():
         menu_input = input(menu_prompt)
 
 
+# FUNCAO JOGO
+
 def game(wins, draws, losses, matches):
 
     enemy = randint(1, 3)
@@ -31,10 +34,10 @@ def game(wins, draws, losses, matches):
     for rival in enex:
         int_rival = int(rival)
         user_input = ask_input()
-        #while user_input > 0 and user_input < 4:
-            #user_input = int(input("\n ROCK = 1 \n PAPER = 2\n SCISSOR = 3\n\n ROCK, PAPER OR SCISSORS: "))
 
         matches += 1
+
+        # IF STATEMENT CHECANDO AS POSSIBILIDADES DE JOGO - PEDRA, PAPEL, TESOURA
 
         if int_rival == user_input:
             draws +=1
@@ -56,18 +59,18 @@ def game(wins, draws, losses, matches):
             wins += 1
             print(f"YOU WON")
 
-
-        #user_input = ask_input()
-
         return wins, draws, losses, matches
 
 
 
-
+# FUNCAO PARA CHECAR O HISTORICO DE PARTIDAS DO USUARIO
 
 def record(wins, losses, draws, matches):
 
     print(f"YOUR RECORD\nWINS: {wins}\nLOSSES: {losses}\nDRAWS: {draws}\nTOTAL MATCHES: {matches}")
+
+
+# FUNCAO PARA PERGUNTAR INPUT DO USUARIO E PASSAR CASO TENHA UM VALUE ERROR
 
 def ask_input():
 
